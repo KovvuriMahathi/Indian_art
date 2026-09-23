@@ -1,0 +1,603 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brown: #56362b;
+  --deep-brown: #2c1c18;
+  --gold: #c58a3c;
+  --cream: #fffaf1;
+  --soft-cream: #f5ead7;
+  --text: #5d4b45;
+  --green: #71835b;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--cream);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Playfair Display", serif;
+}
+
+.navbar {
+  background: rgba(44, 28, 24, 0.96);
+  padding: 12px 0;
+  backdrop-filter: blur(12px);
+}
+
+.navbar-brand {
+  color: #f2d49a !important;
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.navbar-brand span {
+  color: #e5b75e;
+  margin-right: 8px;
+  font-size: 1.8rem;
+}
+
+.nav-link {
+  color: #fff8ee !important;
+  margin-left: 24px;
+  font-size: .85rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  background: #e5b75e;
+  transition: .3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.hero {
+  min-height: 650px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background:
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Painting%20in%20Ajanta%20Cave%201-70.jpg?width=1800")
+    center/cover;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(40, 24, 18, .94), rgba(40, 24, 18, .35), rgba(40, 24, 18, .2));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 75px;
+}
+
+.eyebrow, .section-kicker {
+  letter-spacing: 2px;
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.02;
+  margin-bottom: 24px;
+}
+
+.hero h1 span {
+  color: #f3d59d;
+}
+
+.hero p {
+  max-width: 420px;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.primary-btn {
+  background: var(--gold);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.primary-btn:hover {
+  background: #a86d29;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.primary-btn span {
+  margin-left: 16px;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dots span {
+  width: 9px;
+  height: 9px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.hero-dots .active {
+  background: white;
+}
+
+.section {
+  padding: 85px 0;
+}
+
+.about-section {
+  background: var(--cream);
+}
+
+.section h2 {
+  color: var(--brown);
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 18px;
+}
+
+.about-section p {
+  line-height: 1.9;
+}
+
+.text-link {
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.feature-card {
+  height: 100%;
+  padding: 28px 22px;
+  background: #fffdf8;
+  border: 1px solid #eadfce;
+  border-radius: 15px;
+  transition: .3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(90, 53, 30, .1);
+}
+
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #f3dfbe;
+  color: #956329;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+
+.feature-icon.green {
+  background: #e0e7d2;
+  color: #64764d;
+}
+
+.feature-icon.blue {
+  background: #d5e8e8;
+  color: #287d84;
+  font-size: .7rem;
+}
+
+.feature-card h4 {
+  font-size: 1.2rem;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: .88rem;
+  line-height: 1.7;
+}
+
+.timeline-section {
+  background: var(--soft-cream);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.section-kicker.light {
+  color: #e5bd7d;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 45px;
+}
+
+.timeline-card {
+  background: rgba(255,255,255,.72);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid #ead7ba;
+  transition: .3s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-8px);
+}
+
+.timeline-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.timeline-card div {
+  padding: 24px;
+}
+
+.timeline-card h3 {
+  font-size: 1.35rem;
+  color: var(--brown);
+  margin: 15px 0 8px;
+}
+
+.timeline-card p {
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.period-pill, .art-category {
+  display: inline-block;
+  padding: 7px 13px;
+  border-radius: 20px;
+  background: #f2dcb5;
+  color: #80562f;
+  font-size: .72rem;
+  font-weight: 700;
+}
+
+.gallery-section {
+  background: #fffdf8;
+}
+
+.gallery-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+}
+
+.gallery-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 15px;
+}
+
+#searchInput {
+  width: 230px;
+  padding: 12px 17px;
+  border: 1px solid #e5d9c8;
+  border-radius: 25px;
+  outline: none;
+  background: white;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.filter-btn {
+  border: 1px solid #e3d5c2;
+  border-radius: 22px;
+  padding: 8px 17px;
+  background: white;
+  color: #735e51;
+  font-size: .78rem;
+  transition: .3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
+}
+
+.art-card {
+  height: 100%;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #eee4d7;
+  box-shadow: 0 8px 24px rgba(80, 48, 27, .06);
+  transition: .35s;
+}
+
+.art-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 18px 38px rgba(80, 48, 27, .13);
+}
+
+.art-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.art-card:hover img {
+  transform: scale(1.05);
+}
+
+.art-image-wrap {
+  overflow: hidden;
+}
+
+.art-card-content {
+  padding: 20px;
+}
+
+.art-card h3 {
+  color: var(--brown);
+  font-size: 1.2rem;
+  margin: 14px 0 8px;
+}
+
+.art-card p {
+  font-size: .84rem;
+  line-height: 1.7;
+  min-height: 58px;
+}
+
+.art-card .primary-btn {
+  font-size: .75rem;
+  padding: 10px 16px;
+}
+
+.quiz-section {
+  background:
+    linear-gradient(rgba(44, 28, 24, .94), rgba(44, 28, 24, .94)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Warli%20painting.jpg?width=1600") center/cover;
+  color: white;
+}
+
+.quiz-section h2 {
+  color: white;
+}
+
+.quiz-section .section-title p {
+  color: #e9d9c7;
+}
+
+.quiz-box {
+  max-width: 680px;
+  margin: 35px auto 0;
+  background: #fffaf1;
+  color: var(--brown);
+  padding: 35px;
+  border-radius: 20px;
+}
+
+.quiz-top {
+  display: flex;
+  justify-content: space-between;
+  color: #a77a42;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.quiz-box h3 {
+  margin: 25px 0;
+  font-size: 1.5rem;
+}
+
+.answer-btn {
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #e5d7c4;
+  background: white;
+  color: var(--brown);
+  transition: .25s;
+}
+
+.answer-btn:hover {
+  background: #f7e7cb;
+}
+
+.answer-btn.correct {
+  background: #d7ead1;
+  border-color: #719b63;
+}
+
+.answer-btn.wrong {
+  background: #f4d0cb;
+  border-color: #c56a60;
+}
+
+#quizResult {
+  min-height: 25px;
+  font-weight: 600;
+}
+
+footer {
+  background: #38231e;
+  color: #d9c7b5;
+  padding: 30px 0;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-inner p {
+  margin: 0;
+  font-size: .8rem;
+}
+
+.footer-inner small {
+  font-size: .75rem;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: var(--deep-brown);
+  color: white;
+}
+
+.modal-body {
+  padding: 30px;
+  line-height: 1.8;
+}
+
+.modal-body img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.modal-body h3 {
+  color: var(--brown);
+}
+
+.modal-body h5 {
+  color: #a56d30;
+  margin-top: 20px;
+}
+
+.credit {
+  font-size: .75rem;
+  color: #8b7a6e;
+}
+
+.credit a {
+  color: #a56d30;
+}
+
+@media (max-width: 992px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .gallery-controls {
+    align-items: start;
+  }
+
+  .filter-buttons {
+    justify-content: start;
+  }
+
+  .nav-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: 60px 15px;
+  }
+
+  .hero {
+    min-height: 580px;
+  }
+
+  .hero-content {
+    padding: 80px 25px 0;
+  }
+
+  .feature-card {
+    padding: 24px;
+  }
+
+  #searchInput {
+    width: 100%;
+  }
+
+  .gallery-controls {
+    width: 100%;
+  }
+
+  .quiz-box {
+    padding: 24px;
+  }
+}
+
+/* Interactive timeline additions */
+.timeline-periods { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:28px 0 20px; }
+.timeline-period { border:1px solid #dfc9a8; background:#fffaf1; color:var(--brown); border-radius:30px; padding:10px 18px; font-weight:700; font-size:.8rem; transition:.25s; }
+.timeline-period:hover, .timeline-period.active { background:var(--brown); color:#fff; transform:translateY(-2px); }
+.timeline-details { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:28px; }
+.timeline-detail { text-align:left; border:1px solid #eadcc9; border-radius:14px; background:#fff; padding:18px; display:flex; flex-direction:column; gap:7px; transition:.3s; color:var(--brown); }
+.timeline-detail:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(80,48,27,.12); border-color:var(--gold); }
+.timeline-year { color:#a16e37; font-size:.7rem; font-weight:800; letter-spacing:.5px; }
+.timeline-detail strong { font-family:"Playfair Display",serif; font-size:1.1rem; }
+.timeline-detail small { color:#806d61; }
+.image-label { position:absolute; top:14px; right:14px; background:rgba(44,28,24,.85); color:#fff; border-radius:20px; padding:6px 10px; font-size:.65rem; font-weight:700; }
+.art-image-wrap { position:relative; }
+.artifact-meta { display:flex; flex-direction:column; gap:4px; margin:14px 0; font-size:.72rem; color:#8a7467; }
+.result-count { margin-top:10px; color:#987452; font-size:.78rem; font-weight:700; }
+.detail-badges { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+.detail-badges span { background:#f4e2c3; color:#80562f; border-radius:20px; padding:6px 10px; font-size:.72rem; font-weight:700; }
+@media (max-width:992px) { .timeline-details { grid-template-columns:1fr 1fr; } }
+@media (max-width:576px) { .timeline-details { grid-template-columns:1fr; } .timeline-period { padding:8px 12px; } }
